@@ -1,0 +1,21 @@
+#game-container{
+    text-align: center;
+}
+#game-board{
+    border: 2px solid white;
+    
+}
+#score-container{
+    font-size: 3rem;
+}
+#score{
+    color: green;
+}
+#new-game-btn{
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
