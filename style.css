@@ -1,9 +1,18 @@
 #game-container{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 95vh;
 }
 #game-board{
     border: 2px solid white;
     
+}
+#score-board{
+    text-align: center;
+    width: 25%;
 }
 #score-container{
     font-size: 3rem;

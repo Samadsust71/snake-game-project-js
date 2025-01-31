@@ -1,10 +1,4 @@
-// window.addEventListener('keydown',keyPressed);
 
-// function keyPressed(event){
-//     const keyCode = event.keyCode;
-//     const keyName = event.key;
-//     console.log(`keyPressed: ${keyName} ==> keyCode: ${keyCode}`);
-// }
 const gameBoard = document.getElementById("game-board");
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.getElementById("score");
@@ -71,22 +65,21 @@ function drawFood() {
   const borderRadius = 32;
   ctx.fillStyle = foodColor;
   ctx.strokeStyle = foodColor;
-  // ctx.fillStyle = foodColor;
-  // ctx.fillRect(foodX, foodY, unitSize, unitSize);
+
   if (ctx.roundRect) {
     ctx.beginPath();
-    // Using `roundRect` to draw a rounded rectangle for the food
+    //  to draw a rounded rectangle for the food
     ctx.roundRect(
       foodX, // X coordinate
       foodY, // Y coordinate
       unitSize, // Width of the rectangle
       unitSize, // Height of the rectangle
-      borderRadius // Border radius for the corners
+      borderRadius //  for the corners
     );
     ctx.fill();
     ctx.stroke();
   } else {
-    // Fallback to a normal square if roundRect is not supported
+    // Fallback to a normal square 
     ctx.fillRect(foodX, foodY, unitSize, unitSize);
   }
 }
@@ -106,11 +99,11 @@ function moveSnake() {
 function drawSnake() {
   ctx.fillStyle = snakeColor;
   ctx.strokeStyle = snakeBorder;
-  const borderRadius = 8; // Set this to the desired border radius (in pixels)
+  const borderRadius = 8; // desired border radius (in pixels)
 
   snake.forEach((snakePart) => {
     ctx.beginPath();
-    // Using `roundRect` to draw a rounded rectangle for each snake part
+    //  draw a rounded rectangle for each snake part
     if (ctx.roundRect) {
       // Draw with rounded corners
       ctx.roundRect(
@@ -118,20 +111,16 @@ function drawSnake() {
         snakePart.y, // Y coordinate
         unitSize, // Width of the rectangle
         unitSize, // Height of the rectangle
-        borderRadius // Border radius for rounded corners
+        borderRadius //for rounded corners
       );
     } else {
-      // Fallback if `roundRect` is not supported
+      // Fallback 
       ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
     }
     ctx.fill();
     ctx.stroke();
   });
 
-  // snake.forEach(snakePart => {
-  //     ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
-  //     ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
-  // })
 }
 function changeDirection(event) {
   const keyPressed = event.keyCode;
@@ -206,22 +195,3 @@ function newGame() {
   gameStart();
 }
 
-/**
- * function drawSnake() {
-    ctx.fillStyle = snakeColor;
-    ctx.strokeStyle = snakeBorder;
-    snake.forEach(snakePart => {
-        ctx.beginPath();
-        ctx.arc(
-            snakePart.x + unitSize / 2, // Center X coordinate of the arc
-            snakePart.y + unitSize / 2, // Center Y coordinate of the arc
-            unitSize / 2,               // Radius of the arc (half of the unit size)
-            0,                          // Start angle (0 degrees)
-            2 * Math.PI                 // End angle (360 degrees)
-        );
-        ctx.fill();
-        ctx.stroke();
-    });
-}
-
- */
